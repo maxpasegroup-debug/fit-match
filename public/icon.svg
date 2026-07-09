@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="FIT and Match app icon">
+  <rect width="512" height="512" rx="112" fill="#fffafd"/>
+  <circle cx="256" cy="256" r="170" fill="#fde8f3"/>
+  <path d="M165 180c38-50 144-50 182 0 22 29 20 72-4 101l-87 103-87-103c-24-29-26-72-4-101Z" fill="#c21874"/>
+  <path d="M212 191c20-18 68-18 88 0 13 11 14 31 2 44l-46 51-46-51c-12-13-11-33 2-44Z" fill="#fff"/>
+</svg>

@@ -1,0 +1,49 @@
+{
+  "name": "fit-and-match",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node ./node_modules/next/dist/bin/next dev",
+    "build": "node ./node_modules/next/dist/bin/next build",
+    "start": "node ./node_modules/next/dist/bin/next start",
+    "lint": "node ./node_modules/eslint/bin/eslint.js .",
+    "typecheck": "node ./node_modules/typescript/bin/tsc --noEmit",
+    "prisma:validate": "node ./node_modules/prisma/build/index.js validate",
+    "prisma:generate": "node ./node_modules/prisma/build/index.js generate"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
+    "@prisma/client": "^6.11.1",
+    "@react-email/components": "^0.0.41",
+    "@sentry/nextjs": "^10.63.0",
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.10.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.3",
+    "jose": "^6.0.11",
+    "lucide-react": "^0.525.0",
+    "next": "^15.3.5",
+    "pino": "^10.3.1",
+    "razorpay": "^2.9.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.59.0",
+    "resend": "^4.6.0",
+    "tailwind-merge": "^3.3.1",
+    "zod": "^3.25.74",
+    "zustand": "^5.0.6"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.19.4",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.30.1",
+    "eslint-config-next": "^15.3.5",
+    "prisma": "^6.11.1",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
+  }
+}

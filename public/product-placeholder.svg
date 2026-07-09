@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#fffafd"/>
+  <rect x="90" y="80" width="620" height="840" rx="40" fill="#fde8f3"/>
+  <path d="M400 180c74 0 132 58 132 132v60h58c28 0 50 22 50 50v338c0 28-22 50-50 50H210c-28 0-50-22-50-50V422c0-28 22-50 50-50h58v-60c0-74 58-132 132-132Zm0 70c-35 0-62 27-62 62v60h124v-60c0-35-27-62-62-62Z" fill="#c21874"/>
+  <text x="400" y="890" text-anchor="middle" font-family="Arial" font-size="36" font-weight="700" fill="#9f125d">SIGN SILKS</text>
+</svg>

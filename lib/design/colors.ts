@@ -1,0 +1,35 @@
+export const colors = {
+  background: "#fffafd",
+  foreground: "#241820",
+  muted: "#756871",
+  border: "#eadde6",
+  primary: "#c21874",
+  primaryStrong: "#9f125d",
+  primarySoft: "#fde8f3",
+  white: "#ffffff",
+  success: "#047857",
+  successSoft: "#ecfdf5",
+  danger: "#dc2626",
+  dangerSoft: "#fef2f2",
+} as const;
+
+export const colorClasses = {
+  focusRing:
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c21874] focus-visible:ring-offset-2 focus-visible:ring-offset-white",
+  primaryText: "text-[#c21874]",
+  primaryBg: "bg-[#c21874]",
+  primaryHoverBg: "hover:bg-[#9f125d]",
+  primarySoftBg: "bg-[#fde8f3]",
+  primarySoftHoverBg: "hover:bg-[#fff5fa]",
+  bodyText: "text-[#241820]",
+  formLabelText: "text-[#3a2c34]",
+  mutedText: "text-[#756871]",
+  whiteText: "text-white",
+  whiteBg: "bg-white",
+  border: "border-[#eadde6]",
+  primaryAccent: "accent-[#c21874]",
+  inputFocus: "focus:border-[#c21874] focus:ring-4 focus:ring-[#c21874]/10",
+  placeholder: "placeholder:text-[#a99ca5]",
+  dangerBorder: "border-red-400 focus:border-red-500 focus:ring-red-100",
+  dangerText: "text-red-600",
+} as const;
