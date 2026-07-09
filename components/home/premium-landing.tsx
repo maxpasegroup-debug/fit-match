@@ -17,6 +17,7 @@ import {
 import { ButtonLink } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config/site";
 import { FitJourney } from "./fit-journey";
+import { StyleStudio } from "./style-studio";
 import {
   brandPromise,
   categories,
@@ -53,11 +54,18 @@ export function PremiumLanding() {
     <div className="overflow-hidden bg-[#fffafd] text-[#241820]">
       <HeroSlider />
       <FitJourney />
+      <StyleStudio />
+      <FeaturedCollections />
+      <ProductShowroom
+        eyebrow={homepageProductRows[0]?.eyebrow ?? "Trending now"}
+        title={homepageProductRows[0]?.title ?? "Trending Products"}
+        subtitle={homepageProductRows[0]?.subtitle ?? "Premium styles customers are loving now."}
+        products={homepageProductRows[0]?.products ?? []}
+      />
       <AIJourney />
       <ShopByOccasion />
       <ShopByCategory />
-      <FeaturedCollections />
-      {homepageProductRows.map((row) => (
+      {homepageProductRows.slice(1).map((row) => (
         <ProductShowroom key={row.title} eyebrow={row.eyebrow} title={row.title} subtitle={row.subtitle} products={row.products} />
       ))}
       <AIStylist />

@@ -90,6 +90,30 @@ export type FitJourneyStep = {
   options: FitJourneyOption[];
 };
 
+export type StyleStudioCard = ImageCard & {
+  cta: string;
+};
+
+export type MoodCard = {
+  title: string;
+  subtitle: string;
+  productOffset: number;
+};
+
+export type FabricStudioCard = ImageCard & {
+  bestOccasions: string;
+  weather: string;
+  comfort: string;
+  maintenance: string;
+};
+
+export type ColourStudioCard = {
+  title: string;
+  value: string;
+  subtitle: string;
+  productOffset: number;
+};
+
 export const heroSlides: HeroSlide[] = [
   {
     eyebrow: "AI custom fashion",
@@ -411,6 +435,179 @@ export const homepageProductRows = [
   { eyebrow: "Everyday", title: "Daily Wear", subtitle: "Soft fabrics, easy movement, and simple beauty.", products: demoProducts.slice(40, 48) },
   { eyebrow: "Celebration", title: "Festival Collection", subtitle: "Radiant colour, graceful detail, and premium custom fit.", products: demoProducts.slice(48, 56) },
   { eyebrow: "Designer edit", title: "Premium Designer Picks", subtitle: "Investor-ready showroom pieces with rich editorial appeal.", products: demoProducts.slice(52, 60) },
+];
+
+export const styleStudioCards: StyleStudioCard[] = [
+  {
+    title: "Minimal Elegance",
+    subtitle: "Clean silhouettes, soft tones, and quiet confidence.",
+    cta: "Explore minimal",
+    image: {
+      src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=82",
+      alt: "Minimal elegant women fashion editorial",
+    },
+  },
+  {
+    title: "Classic Beauty",
+    subtitle: "Timeless outfits that feel graceful every season.",
+    cta: "Explore classic",
+    image: {
+      src: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=82",
+      alt: "Classic beauty fashion editorial",
+    },
+  },
+  {
+    title: "Royal Bridal",
+    subtitle: "Rich colours and ceremony looks made for attention.",
+    cta: "Explore bridal",
+    image: {
+      src: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=82",
+      alt: "Royal bridal fashion editorial",
+    },
+  },
+  {
+    title: "Office Confidence",
+    subtitle: "Polished looks for meetings, commutes, and long days.",
+    cta: "Explore office",
+    image: {
+      src: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=82",
+      alt: "Office confidence fashion editorial",
+    },
+  },
+  {
+    title: "Temple Grace",
+    subtitle: "Simple, modest, and softly traditional.",
+    cta: "Explore graceful",
+    image: {
+      src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=82",
+      alt: "Temple grace fashion editorial",
+    },
+  },
+  {
+    title: "Party Glamour",
+    subtitle: "Statement pieces with shine, drama, and movement.",
+    cta: "Explore party",
+    image: {
+      src: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=1000&q=82",
+      alt: "Party glamour fashion editorial",
+    },
+  },
+  {
+    title: "Vacation Edit",
+    subtitle: "Light, effortless outfits for relaxed days.",
+    cta: "Explore vacation",
+    image: {
+      src: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=82",
+      alt: "Vacation edit fashion editorial",
+    },
+  },
+  {
+    title: "Contemporary Chic",
+    subtitle: "Modern lines with a premium designer mood.",
+    cta: "Explore chic",
+    image: {
+      src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=82",
+      alt: "Contemporary chic fashion editorial",
+    },
+  },
+];
+
+export const moodCards: MoodCard[] = [
+  { title: "Elegant", subtitle: "Soft polish for special days", productOffset: 0 },
+  { title: "Feminine", subtitle: "Pretty colours and graceful shapes", productOffset: 6 },
+  { title: "Minimal", subtitle: "Clean, calm, and refined", productOffset: 12 },
+  { title: "Luxury", subtitle: "Rich texture and premium shine", productOffset: 18 },
+  { title: "Traditional", subtitle: "Classic roots with modern comfort", productOffset: 24 },
+  { title: "Modern", subtitle: "Fresh silhouettes and sharp styling", productOffset: 30 },
+  { title: "Professional", subtitle: "Confident workwear for every day", productOffset: 36 },
+  { title: "Festive", subtitle: "Celebration colour and easy glamour", productOffset: 42 },
+];
+
+export const fabricStudioCards: FabricStudioCard[] = [
+  {
+    title: "Cotton",
+    subtitle: "Breathable, soft, and perfect for everyday wear.",
+    bestOccasions: "Daily wear, college, temple",
+    weather: "Warm weather",
+    comfort: "Very high",
+    maintenance: "Easy",
+    image: {
+      src: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80",
+      alt: "Cotton fabric fashion editorial",
+    },
+  },
+  {
+    title: "Silk",
+    subtitle: "Elegant shine with a premium festive finish.",
+    bestOccasions: "Wedding, festival, party",
+    weather: "Cool evenings",
+    comfort: "High",
+    maintenance: "Careful",
+    image: {
+      src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=80",
+      alt: "Silk fabric fashion editorial",
+    },
+  },
+  {
+    title: "Linen",
+    subtitle: "Fresh texture with relaxed luxury.",
+    bestOccasions: "Office, travel, vacation",
+    weather: "Hot weather",
+    comfort: "Very high",
+    maintenance: "Medium",
+    image: {
+      src: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80",
+      alt: "Linen fabric fashion editorial",
+    },
+  },
+  {
+    title: "Rayon",
+    subtitle: "Soft fall, light feel, and easy movement.",
+    bestOccasions: "Office, daily wear, party",
+    weather: "All season",
+    comfort: "High",
+    maintenance: "Easy",
+    image: {
+      src: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
+      alt: "Rayon fabric fashion editorial",
+    },
+  },
+  {
+    title: "Georgette",
+    subtitle: "Light drape for graceful occasion outfits.",
+    bestOccasions: "Wedding, festival, party",
+    weather: "Mild weather",
+    comfort: "Medium",
+    maintenance: "Medium",
+    image: {
+      src: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=80",
+      alt: "Georgette fabric fashion editorial",
+    },
+  },
+  {
+    title: "Chiffon",
+    subtitle: "Airy, delicate, and beautiful for movement.",
+    bestOccasions: "Party, vacation, evening",
+    weather: "Warm evenings",
+    comfort: "Medium",
+    maintenance: "Careful",
+    image: {
+      src: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=900&q=80",
+      alt: "Chiffon fabric fashion editorial",
+    },
+  },
+];
+
+export const colourStudioCards: ColourStudioCard[] = [
+  { title: "Rose Pink", value: "#f3a7bf", subtitle: "Soft, romantic, and youthful", productOffset: 0 },
+  { title: "Wine", value: "#7b1736", subtitle: "Deep, rich, and evening-ready", productOffset: 7 },
+  { title: "Emerald", value: "#0f513d", subtitle: "Premium festive elegance", productOffset: 14 },
+  { title: "Royal Blue", value: "#183f8c", subtitle: "Confident and statement-making", productOffset: 21 },
+  { title: "Ivory", value: "#f4eadf", subtitle: "Quiet luxury and calm beauty", productOffset: 28 },
+  { title: "Mustard", value: "#d29b22", subtitle: "Warm, festive, and bright", productOffset: 35 },
+  { title: "Lavender", value: "#b9a4dc", subtitle: "Soft modern femininity", productOffset: 42 },
+  { title: "Black", value: "#151218", subtitle: "Sharp, timeless, and elegant", productOffset: 49 },
+  { title: "Cream", value: "#efe1cf", subtitle: "Soft neutral premium tone", productOffset: 5 },
 ];
 
 export const styleJournal: JournalCard[] = [

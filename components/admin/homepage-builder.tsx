@@ -26,6 +26,10 @@ import {
   heroSlides,
   homepageProductRows,
   occasions,
+  colourStudioCards,
+  fabricStudioCards,
+  moodCards,
+  styleStudioCards,
   styleJournal,
 } from "@/components/home/landing-content";
 
@@ -41,6 +45,7 @@ type BuilderSection = {
 const defaultSections: BuilderSection[] = [
   { id: "hero", title: "Hero Slider", description: "Cinematic homepage slides with CTA buttons and overlays.", enabled: true, status: "Live", items: heroSlides.length },
   { id: "fit-journey", title: "Signature FIT Journey", description: "Personalised onboarding cards, guided choices, and recommended designs.", enabled: true, status: "Live", items: fitJourneySteps.length },
+  { id: "style-studio", title: "Style Studio", description: "Editorial style cards, mood filters, fabric studio, and colour studio.", enabled: true, status: "Live", items: styleStudioCards.length + moodCards.length + fabricStudioCards.length + colourStudioCards.length },
   { id: "journey", title: "AI Measurement Journey", description: "Four-step explanation for measurement to delivery.", enabled: true, status: "Live", items: 4 },
   { id: "occasion", title: "Occasion Cards", description: "Wedding, office, college, daily wear, and seasonal cards.", enabled: true, status: "Live", items: occasions.length },
   { id: "category", title: "Category Thumbnails", description: "Circular premium category shortcuts for mobile shopping.", enabled: true, status: "Live", items: categories.length },
@@ -68,9 +73,19 @@ export function HomepageBuilder() {
   const [journeyTitle, setJourneyTitle] = useState(fitJourneyIntro.title);
   const [journeySubtitle, setJourneySubtitle] = useState(fitJourneyIntro.subtitle);
   const [journeyCtas, setJourneyCtas] = useState(fitJourneyIntro.cards.map((card) => card.cta));
+  const [styleTitle, setStyleTitle] = useState("Discover Your Style");
+  const [styleSubtitle, setStyleSubtitle] = useState("Find collections that match your personality and lifestyle.");
 
   const enabledCount = useMemo(() => sections.filter((section) => section.enabled).length, [sections]);
-  const assetCount = heroSlides.length + occasions.length + categories.length + collectionBanners.length + styleJournal.length + fitJourneyIntro.cards.length;
+  const assetCount =
+    heroSlides.length +
+    occasions.length +
+    categories.length +
+    collectionBanners.length +
+    styleJournal.length +
+    fitJourneyIntro.cards.length +
+    styleStudioCards.length +
+    fabricStudioCards.length;
 
   function toggleSection(id: string) {
     setSections((current) =>
@@ -234,6 +249,60 @@ export function HomepageBuilder() {
                       </span>
                       <span className="text-xs font-semibold text-[#c21874]">{step.options.length} options</span>
                     </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-5">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h2 className="text-xl font-semibold text-[#241820]">Style Studio Controls</h2>
+                <p className="mt-2 text-sm leading-6 text-[#756871]">
+                  Manage the editorial inspiration layer, mood filters, fabric cards, and colour cards with local demo content.
+                </p>
+              </div>
+              <span className="rounded-full bg-[#fff5fa] px-3 py-1 text-xs font-semibold text-[#c21874]">Editorial</span>
+            </div>
+            <div className="mt-5 grid gap-4">
+              <label className="grid gap-2 text-sm font-semibold text-[#3a2c34]">
+                Section title
+                <input
+                  value={styleTitle}
+                  onChange={(event) => setStyleTitle(event.target.value)}
+                  className="rounded-2xl border border-[#f2d7e6] bg-white px-4 py-3 text-sm font-medium outline-none focus:border-[#c21874]"
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-semibold text-[#3a2c34]">
+                Description
+                <textarea
+                  value={styleSubtitle}
+                  onChange={(event) => setStyleSubtitle(event.target.value)}
+                  rows={3}
+                  className="rounded-2xl border border-[#f2d7e6] bg-white px-4 py-3 text-sm font-medium outline-none focus:border-[#c21874]"
+                />
+              </label>
+              <div className="grid gap-3">
+                {[
+                  ["Style Studio cards", styleStudioCards.length],
+                  ["Mood cards", moodCards.length],
+                  ["Fabric cards", fabricStudioCards.length],
+                  ["Colour cards", colourStudioCards.length],
+                ].map(([label, count]) => (
+                  <div key={label} className="flex items-center justify-between rounded-2xl bg-[#fff8fb] px-4 py-3 text-sm">
+                    <span className="font-semibold text-[#3a2c34]">{label}</span>
+                    <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-[#c21874]">{count} items</span>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-3xl border border-[#f2d7e6] bg-white p-4">
+                <p className="text-sm font-semibold text-[#241820]">Preview mood cards</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {moodCards.map((mood) => (
+                    <span key={mood.title} className="rounded-full bg-[#fff5fa] px-3 py-2 text-xs font-semibold text-[#c21874]">
+                      {mood.title}
+                    </span>
                   ))}
                 </div>
               </div>
