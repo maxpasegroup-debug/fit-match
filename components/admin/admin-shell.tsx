@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/config/site";
 
 const links = [
   ["/admin", "Dashboard"],
+  ["/admin/homepage", "Homepage Builder"],
   ["/admin/catalog", "Catalog"],
   ["/admin/products", "Products"],
   ["/admin/categories", "Categories"],
