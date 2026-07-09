@@ -12,6 +12,7 @@ import {
   Shirt,
   Sparkles,
   Truck,
+  WandSparkles,
 } from "lucide-react";
 
 export type LandingImage = {
@@ -68,6 +69,25 @@ export type CustomerStory = {
   text: string;
   rating: string;
   image: LandingImage;
+};
+
+export type FitJourneyEntry = {
+  title: string;
+  subtitle: string;
+  cta: string;
+  icon: LucideIcon;
+};
+
+export type FitJourneyOption = {
+  label: string;
+  detail: string;
+  value?: string;
+};
+
+export type FitJourneyStep = {
+  title: string;
+  subtitle: string;
+  options: FitJourneyOption[];
 };
 
 export const heroSlides: HeroSlide[] = [
@@ -133,6 +153,86 @@ export const journeySteps: JourneyStep[] = [
   { title: "Choose Design", text: "Pick dresses, kurtis, sarees, and occasion looks.", icon: Shirt },
   { title: "Customize Your Dress", text: "Select fabric, colour, length, sleeve, and finish.", icon: Palette },
   { title: "Delivered Anywhere in India", text: "Your made-for-you outfit arrives at your door.", icon: Truck },
+];
+
+export const fitJourneyIntro = {
+  title: "Let's Create Your Perfect Dress",
+  subtitle: "We'll help you find the perfect outfit based on your measurements, style, and occasion.",
+  cards: [
+    {
+      title: "AI Measure Me",
+      subtitle: "Start with a guided fit profile from home.",
+      cta: "Start measuring",
+      icon: Camera,
+    },
+    {
+      title: "Browse Designs",
+      subtitle: "Explore dresses, kurtis, sarees, and premium edits.",
+      cta: "Explore designs",
+      icon: Shirt,
+    },
+    {
+      title: "Ask My Stylist",
+      subtitle: "Get simple outfit ideas for your next moment.",
+      cta: "Ask stylist",
+      icon: WandSparkles,
+    },
+  ] satisfies FitJourneyEntry[],
+};
+
+export const fitJourneySteps: FitJourneyStep[] = [
+  {
+    title: "AI Measurement",
+    subtitle: "Upload photos or use saved measurements.",
+    options: [
+      { label: "Use AI photos", detail: "Front and side photos for a new fit profile" },
+      { label: "Use saved measurements", detail: "Continue with your default measurement profile" },
+      { label: "Enter manually", detail: "Add measurements yourself in a simple form" },
+    ],
+  },
+  {
+    title: "Choose Occasion",
+    subtitle: "Tell us where you are going.",
+    options: ["Wedding", "Office", "College", "Daily Wear", "Temple", "Party", "Travel", "Festival", "Birthday", "Vacation"].map((label) => ({
+      label,
+      detail: label === "Wedding" ? "Rich, graceful and photo-ready" : label === "Office" ? "Polished and comfortable" : "Beautiful looks for your day",
+    })),
+  },
+  {
+    title: "Choose Style",
+    subtitle: "Pick the feeling you want.",
+    options: ["Classic", "Elegant", "Minimal", "Traditional", "Luxury", "Modern"].map((label) => ({
+      label,
+      detail: label === "Luxury" ? "Premium fabrics and statement details" : label === "Minimal" ? "Clean lines and soft colours" : "A refined style direction",
+    })),
+  },
+  {
+    title: "Choose Colour",
+    subtitle: "Select shades you would love to wear.",
+    options: [
+      { label: "Rose Magenta", detail: "Signature, bright and feminine", value: "#c21874" },
+      { label: "Ivory Pearl", detail: "Soft, premium and calm", value: "#f4eadf" },
+      { label: "Emerald", detail: "Rich festive elegance", value: "#0f513d" },
+      { label: "Midnight", detail: "Elegant evening depth", value: "#172033" },
+      { label: "Gold", detail: "Warm celebration shine", value: "#d4a73c" },
+      { label: "Blush", detail: "Pretty and romantic", value: "#f4b6c8" },
+    ],
+  },
+  {
+    title: "Choose Fabric",
+    subtitle: "Choose the fabric feel you prefer.",
+    options: ["Cotton", "Silk", "Linen", "Rayon", "Georgette", "Chiffon"].map((label) => ({
+      label,
+      detail: label === "Cotton" ? "Breathable everyday comfort" : label === "Silk" ? "Soft shine for premium looks" : "Light, graceful and easy to wear",
+    })),
+  },
+  {
+    title: "Recommended Designs",
+    subtitle: "Your FIT Match designs are ready.",
+    options: [
+      { label: "Premium recommendations", detail: "Demo designs with FIT Match badges" },
+    ],
+  },
 ];
 
 export const brandPromise: JourneyStep[] = [

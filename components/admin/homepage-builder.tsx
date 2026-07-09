@@ -21,6 +21,8 @@ import {
   categories,
   collectionBanners,
   customerStories,
+  fitJourneyIntro,
+  fitJourneySteps,
   heroSlides,
   homepageProductRows,
   occasions,
@@ -38,6 +40,7 @@ type BuilderSection = {
 
 const defaultSections: BuilderSection[] = [
   { id: "hero", title: "Hero Slider", description: "Cinematic homepage slides with CTA buttons and overlays.", enabled: true, status: "Live", items: heroSlides.length },
+  { id: "fit-journey", title: "Signature FIT Journey", description: "Personalised onboarding cards, guided choices, and recommended designs.", enabled: true, status: "Live", items: fitJourneySteps.length },
   { id: "journey", title: "AI Measurement Journey", description: "Four-step explanation for measurement to delivery.", enabled: true, status: "Live", items: 4 },
   { id: "occasion", title: "Occasion Cards", description: "Wedding, office, college, daily wear, and seasonal cards.", enabled: true, status: "Live", items: occasions.length },
   { id: "category", title: "Category Thumbnails", description: "Circular premium category shortcuts for mobile shopping.", enabled: true, status: "Live", items: categories.length },
@@ -62,9 +65,12 @@ const mediaPanels = [
 export function HomepageBuilder() {
   const [sections, setSections] = useState(defaultSections);
   const [draggedId, setDraggedId] = useState<string | null>(null);
+  const [journeyTitle, setJourneyTitle] = useState(fitJourneyIntro.title);
+  const [journeySubtitle, setJourneySubtitle] = useState(fitJourneyIntro.subtitle);
+  const [journeyCtas, setJourneyCtas] = useState(fitJourneyIntro.cards.map((card) => card.cta));
 
   const enabledCount = useMemo(() => sections.filter((section) => section.enabled).length, [sections]);
-  const assetCount = heroSlides.length + occasions.length + categories.length + collectionBanners.length + styleJournal.length;
+  const assetCount = heroSlides.length + occasions.length + categories.length + collectionBanners.length + styleJournal.length + fitJourneyIntro.cards.length;
 
   function toggleSection(id: string) {
     setSections((current) =>
@@ -175,6 +181,65 @@ export function HomepageBuilder() {
         </Card>
 
         <div className="grid gap-5">
+          <Card className="p-5">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h2 className="text-xl font-semibold text-[#241820]">FIT Journey Controls</h2>
+                <p className="mt-2 text-sm leading-6 text-[#756871]">
+                  Mock controls for the signature homepage entry. Future persistence can store this as Homepage Builder content.
+                </p>
+              </div>
+              <span className="rounded-full bg-[#fff5fa] px-3 py-1 text-xs font-semibold text-[#c21874]">Preview ready</span>
+            </div>
+            <div className="mt-5 grid gap-4">
+              <label className="grid gap-2 text-sm font-semibold text-[#3a2c34]">
+                Journey title
+                <input
+                  value={journeyTitle}
+                  onChange={(event) => setJourneyTitle(event.target.value)}
+                  className="rounded-2xl border border-[#f2d7e6] bg-white px-4 py-3 text-sm font-medium outline-none focus:border-[#c21874]"
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-semibold text-[#3a2c34]">
+                Subtitle
+                <textarea
+                  value={journeySubtitle}
+                  onChange={(event) => setJourneySubtitle(event.target.value)}
+                  rows={3}
+                  className="rounded-2xl border border-[#f2d7e6] bg-white px-4 py-3 text-sm font-medium outline-none focus:border-[#c21874]"
+                />
+              </label>
+              <div className="grid gap-2">
+                <p className="text-sm font-semibold text-[#3a2c34]">Entry CTA labels</p>
+                {fitJourneyIntro.cards.map((card, index) => (
+                  <label key={card.title} className="grid gap-2 rounded-2xl bg-[#fff8fb] p-3 text-sm font-semibold text-[#3a2c34]">
+                    {card.title}
+                    <input
+                      value={journeyCtas[index] ?? ""}
+                      onChange={(event) =>
+                        setJourneyCtas((current) => current.map((item, itemIndex) => (itemIndex === index ? event.target.value : item)))
+                      }
+                      className="rounded-xl border border-[#f2d7e6] bg-white px-3 py-2 text-sm font-medium outline-none focus:border-[#c21874]"
+                    />
+                  </label>
+                ))}
+              </div>
+              <div className="rounded-3xl border border-[#f2d7e6] bg-white p-4">
+                <p className="text-sm font-semibold text-[#241820]">Configured steps</p>
+                <div className="mt-3 grid gap-2">
+                  {fitJourneySteps.map((step, index) => (
+                    <div key={step.title} className="flex items-center justify-between rounded-2xl bg-[#fff8fb] px-4 py-3 text-sm">
+                      <span className="font-semibold text-[#3a2c34]">
+                        {index + 1}. {step.title}
+                      </span>
+                      <span className="text-xs font-semibold text-[#c21874]">{step.options.length} options</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Card>
+
           <Card className="p-5">
             <h2 className="text-xl font-semibold text-[#241820]">Media Experience</h2>
             <p className="mt-2 text-sm leading-6 text-[#756871]">

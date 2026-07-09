@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config/site";
+import { FitJourney } from "./fit-journey";
 import {
   brandPromise,
   categories,
@@ -51,6 +52,7 @@ export function PremiumLanding() {
   return (
     <div className="overflow-hidden bg-[#fffafd] text-[#241820]">
       <HeroSlider />
+      <FitJourney />
       <AIJourney />
       <ShopByOccasion />
       <ShopByCategory />
