@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const clientEnvSchema = z.object({
   NEXT_PUBLIC_SENTRY_DSN: z.string().url().optional(),
-  NEXT_PUBLIC_RAZORPAY_KEY_ID: z.string().min(1),
+  NEXT_PUBLIC_RAZORPAY_KEY_ID: z.string().default(""),
 });
 
 const parsedClientEnv = clientEnvSchema.safeParse({

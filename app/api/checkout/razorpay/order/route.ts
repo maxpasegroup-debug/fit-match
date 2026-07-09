@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth/session";
 import { prisma } from "@/lib/db/prisma";
-import { razorpay } from "@/lib/payments/razorpay";
+import { getRazorpayClient, isRazorpayConfigured } from "@/lib/payments/razorpay";
 import { calculatePriceSummary } from "@/features/checkout/price-engine";
 import { logCustomerAudit } from "@/features/checkout/audit";
 import { razorpayOrderSchema } from "@/features/checkout/schemas";
@@ -33,9 +33,12 @@ export async function POST(request: Request) {
   if (!checkout || checkout.cart.items.length === 0) {
     return NextResponse.json({ error: "Checkout session was not found" }, { status: 404 });
   }
+  if (!isRazorpayConfigured()) {
+    return NextResponse.json({ error: "Payment gateway is not configured." }, { status: 503 });
+  }
 
   const price = calculatePriceSummary(checkout.cart.items, checkout.cart.coupon);
-  const order = (await razorpay.orders.create({
+  const order = (await getRazorpayClient().orders.create({
     amount: Math.round(price.grandTotal * 100),
     currency: "INR",
     receipt: checkout.id,

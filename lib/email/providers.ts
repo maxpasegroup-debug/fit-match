@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import { Resend } from "resend";
 import { env } from "@/lib/config/env";
+import { logger } from "@/lib/logger";
 
 export type EmailMessage = {
   to: string;
@@ -13,9 +14,14 @@ export type EmailProvider = {
 };
 
 class ResendEmailProvider implements EmailProvider {
-  private readonly client = new Resend(env.RESEND_API_KEY);
+  private readonly client = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY) : null;
 
   async send(message: EmailMessage): Promise<void> {
+    if (!this.client || !env.EMAIL_FROM) {
+      logger.warn({ to: message.to, subject: message.subject }, "email provider is not configured; skipping send");
+      return;
+    }
+
     const { error } = await this.client.emails.send({
       from: env.EMAIL_FROM,
       to: message.to,

@@ -54,8 +54,13 @@ async function loadRazorpay(): Promise<boolean> {
 export function RazorpayPayment({ checkoutSessionId, disabled }: { checkoutSessionId?: string; disabled: boolean }) {
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const gatewayConfigured = Boolean(clientEnv.NEXT_PUBLIC_RAZORPAY_KEY_ID);
 
   async function pay() {
+    if (!gatewayConfigured) {
+      setMessage("Payment gateway is being configured.");
+      return;
+    }
     if (!checkoutSessionId) {
       setMessage("Create checkout first.");
       return;
@@ -121,9 +126,9 @@ export function RazorpayPayment({ checkoutSessionId, disabled }: { checkoutSessi
 
   return (
     <div className="grid gap-3">
-      <Button className="w-full" disabled={disabled || loading} onClick={pay} size="lg" type="button">
+      <Button className="w-full" disabled={disabled || loading || !gatewayConfigured} onClick={pay} size="lg" type="button">
         <CreditCard className="mr-2 h-5 w-5" />
-        {loading ? "Starting Payment..." : "Pay Securely with Razorpay"}
+        {loading ? "Starting Payment..." : gatewayConfigured ? "Pay Securely with Razorpay" : "Payment Setup Pending"}
       </Button>
       {message ? <p className="text-sm font-semibold text-[#9f125d]" role="status">{message}</p> : null}
     </div>
