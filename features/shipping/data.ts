@@ -12,10 +12,7 @@ export async function getAdminShippingData() {
     prisma.courierProvider.findMany({ orderBy: { name: "asc" } }),
     prisma.warehouse.findMany({ where: { active: true }, orderBy: { name: "asc" } }),
     prisma.order.findMany({
-      where: {
-        status: { in: ["PACKING", "READY_TO_SHIP"] },
-        OR: [{ shipments: { none: {} } }, { shipments: { some: { status: "PENDING" } } }],
-      },
+      where: { status: { in: ["PACKING", "READY_TO_SHIP"] }, shipments: { some: { status: "PENDING" } } },
       include: { user: true },
       orderBy: { updatedAt: "desc" },
       take: 50,

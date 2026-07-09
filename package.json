@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "node ./node_modules/next/dist/bin/next dev",
     "build": "node ./node_modules/next/dist/bin/next build",
+    "prestart": "node ./node_modules/prisma/build/index.js db push",
     "start": "node ./node_modules/next/dist/bin/next start",
     "lint": "node ./node_modules/eslint/bin/eslint.js .",
     "typecheck": "node ./node_modules/typescript/bin/tsc --noEmit",
@@ -24,6 +25,7 @@
     "lucide-react": "^0.525.0",
     "next": "^15.3.5",
     "pino": "^10.3.1",
+    "prisma": "^6.11.1",
     "razorpay": "^2.9.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -42,7 +44,6 @@
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.30.1",
     "eslint-config-next": "^15.3.5",
-    "prisma": "^6.11.1",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3"
   }
