@@ -1,6 +1,6 @@
-const CACHE_NAME = "fit-match-v1";
+const CACHE_NAME = "fit-match-v2";
 const OFFLINE_URL = "/offline";
-const APP_SHELL = ["/", OFFLINE_URL, "/favicon.svg", "/icon.svg", "/product-placeholder.svg"];
+const APP_SHELL = [OFFLINE_URL, "/favicon.svg", "/icon.svg", "/product-placeholder.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -20,8 +20,14 @@ self.addEventListener("fetch", (event) => {
 
   if (request.mode === "navigate") {
     event.respondWith(
-      fetch(request).catch(() => caches.match(OFFLINE_URL).then((response) => response || Response.error())),
+      fetch(request, { cache: "no-store" }).catch(() => caches.match(OFFLINE_URL).then((response) => response || Response.error())),
     );
+    return;
+  }
+
+  const url = new URL(request.url);
+  if (url.origin === self.location.origin && (url.pathname === "/" || url.pathname.startsWith("/_next/server/app"))) {
+    event.respondWith(fetch(request, { cache: "no-store" }));
     return;
   }
 
