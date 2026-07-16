@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/config/site";
 
 const shortcuts = [
   { title: "My Profile", icon: UserRound, text: "Manage account details and preferences." },
-  { title: "My Measurements", icon: Ruler, text: "Create saved profiles for FIT & Match." },
+  { title: "My Measurements", icon: Ruler, text: "Create saved profiles for FIT & MATCH." },
   { title: "My Addresses", icon: Home, text: "Manage delivery addresses." },
   { title: "Recently viewed", icon: Sparkles, text: "Your browsing history will appear here." },
   { title: "Wishlist", icon: Heart, text: "Saved styles will be ready in the next phase." },
@@ -28,7 +28,7 @@ export default async function HomeDashboardPage() {
           <div>
             <p className="text-sm font-semibold text-[#c21874]">Welcome back</p>
             <h1 className="mt-2 text-3xl font-semibold text-[#241820]">
-              Hi {user.name}, your FIT & Match home is ready.
+              Hi {user.name}, your FIT & MATCH home is ready.
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[#756871]">
               This dashboard is intentionally light for Phase 1, with secure account

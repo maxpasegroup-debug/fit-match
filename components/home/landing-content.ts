@@ -114,6 +114,16 @@ export type ColourStudioCard = {
   productOffset: number;
 };
 
+export type DesignStudioImageOption = ImageCard & {
+  estimate?: string;
+};
+
+export type DesignStudioOption = {
+  title: string;
+  subtitle: string;
+  value?: string;
+};
+
 export const heroSlides: HeroSlide[] = [
   {
     eyebrow: "AI custom fashion",
@@ -610,6 +620,67 @@ export const colourStudioCards: ColourStudioCard[] = [
   { title: "Cream", value: "#efe1cf", subtitle: "Soft neutral premium tone", productOffset: 5 },
 ];
 
+export const designStudio = {
+  title: "Design Your Dream Dress",
+  subtitle: "Personalise every detail and create a dress that's uniquely yours.",
+  baseStyles: [
+    ["Kurti", "Everyday elegance with a custom fit"],
+    ["Salwar Set", "Graceful comfort for daily and festive wear"],
+    ["Anarkali", "Flowing silhouette with a premium finish"],
+    ["Saree", "Timeless drape with styled blouse options"],
+    ["Lehenga", "Celebration-ready volume and detail"],
+    ["Gown", "Evening glamour with soft movement"],
+    ["Co-ord Set", "Modern matching pieces made easy"],
+    ["Western Dress", "Contemporary style with FIT Match comfort"],
+  ].map(([title, subtitle], index) => ({
+    title,
+    subtitle,
+    estimate: ["₹2,499", "₹3,199", "₹4,499", "₹3,899", "₹7,999", "₹5,499", "₹2,899", "₹3,499"][index],
+    image: {
+      src: productImages[index % productImages.length],
+      alt: `${title} base style preview`,
+    },
+  })) satisfies DesignStudioImageOption[],
+  fabrics: [
+    { title: "Cotton", subtitle: "Soft and breathable for everyday comfort" },
+    { title: "Silk", subtitle: "Premium shine for weddings and festivals" },
+    { title: "Linen", subtitle: "Relaxed texture for warm days" },
+    { title: "Rayon", subtitle: "Fluid fall for elegant movement" },
+    { title: "Georgette", subtitle: "Light drape for occasion wear" },
+    { title: "Chiffon", subtitle: "Airy and delicate for evening looks" },
+    { title: "Organza", subtitle: "Sheer volume with a designer feel" },
+    { title: "Velvet", subtitle: "Rich texture for luxury moments" },
+  ] satisfies DesignStudioOption[],
+  colours: [
+    { title: "Rose Pink", subtitle: "Soft and romantic", value: "#f3a7bf" },
+    { title: "Wine", subtitle: "Deep and rich", value: "#7b1736" },
+    { title: "Emerald", subtitle: "Festive elegance", value: "#0f513d" },
+    { title: "Royal Blue", subtitle: "Confident statement", value: "#183f8c" },
+    { title: "Ivory", subtitle: "Quiet luxury", value: "#f4eadf" },
+    { title: "Lavender", subtitle: "Modern softness", value: "#b9a4dc" },
+    { title: "Black", subtitle: "Timeless evening", value: "#151218" },
+    { title: "Cream", subtitle: "Soft neutral", value: "#efe1cf" },
+    { title: "Mustard", subtitle: "Warm celebration", value: "#d29b22" },
+    { title: "Pastel Green", subtitle: "Fresh and calm", value: "#b8d8bd" },
+  ] satisfies DesignStudioOption[],
+  neckStyles: ["Round", "V Neck", "Boat", "Collar", "Square", "Keyhole", "Sweetheart"].map((title) => ({
+    title,
+    subtitle: "Refined neckline option",
+  })) satisfies DesignStudioOption[],
+  sleeves: ["Sleeveless", "Cap", "Half", "Three Quarter", "Full", "Bell", "Puff"].map((title) => ({
+    title,
+    subtitle: "Comfortable sleeve finish",
+  })) satisfies DesignStudioOption[],
+  lengths: ["Short", "Knee", "Calf", "Ankle", "Floor Length"].map((title) => ({
+    title,
+    subtitle: "Made to your preferred length",
+  })) satisfies DesignStudioOption[],
+  details: ["Borders", "Embroidery", "Lace", "Buttons", "Pockets", "Lining"].map((title) => ({
+    title,
+    subtitle: "Optional finishing detail",
+  })) satisfies DesignStudioOption[],
+};
+
 export const styleJournal: JournalCard[] = [
   {
     title: "Top Summer Colors",
@@ -698,6 +769,6 @@ export const stylistOccasions = ["Wedding", "Office", "Temple", "Party", "Travel
 
 export const footerColumns = [
   { title: "Shop", links: ["Occasions", "Categories", "Collections", "Designer Picks"] },
-  { title: "FIT & Match", links: ["AI Measurement", "Custom Stitching", "Style Preferences", "Measurement Profiles"] },
+  { title: "FIT & MATCH", links: ["AI Measurement", "Custom Stitching", "Style Preferences", "Measurement Profiles"] },
   { title: "Support", links: ["Shipping Policy", "Return Policy", "Refund Policy", "Contact"] },
 ] as const;

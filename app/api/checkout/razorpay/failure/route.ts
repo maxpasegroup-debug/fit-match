@@ -39,7 +39,7 @@ export async function POST(request: Request) {
   });
   await prisma.checkoutSession.update({ where: { id: parsed.data.checkoutSessionId }, data: { status: "FAILED" } });
   await logCustomerAudit({ action: "PAYMENT_FAILED", entityType: "Payment", entityId: payment.id, message: parsed.data.errorDescription ?? "Razorpay payment failed." });
-  await sendEmail({ to: user.email, subject: "SIGN SILKS payment failed", react: PaymentFailedEmail({ name: user.name, reason: parsed.data.errorDescription }) });
+  await sendEmail({ to: user.email, subject: "FIT & MATCH payment failed", react: PaymentFailedEmail({ name: user.name, reason: parsed.data.errorDescription }) });
 
   return NextResponse.json({ status: "FAILED" });
 }

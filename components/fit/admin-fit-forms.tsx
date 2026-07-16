@@ -43,7 +43,7 @@ export function SizeChartForm({ categories }: { categories: Category[] }) {
       <StatusMessage message={state.message} tone={state.ok ? "success" : "error"} />
       <h2 className="text-lg font-semibold text-[#241820]">Size Chart</h2>
       <div className="grid gap-4 md:grid-cols-2">
-        <Input label="Brand" name="brand" defaultValue="Sign Silks" />
+        <Input label="Brand" name="brand" defaultValue="FIT & MATCH" />
         <Input label="Chart Name" name="name" />
         <Select label="Category" name="categoryId"><option value="">All categories</option>{categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}</Select>
         <Input label="Garment Ease CM" name="garmentEaseCm" defaultValue="4" />

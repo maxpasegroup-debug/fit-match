@@ -22,7 +22,7 @@ export default async function OrdersPage({
     <main className="py-8 md:py-12">
       <div className={`${siteConfig.maxWidthClass} grid gap-6`}>
         <div>
-          <p className="text-sm font-semibold text-[#c21874]">SIGN SILKS</p>
+          <p className="text-sm font-semibold text-[#c21874]">FIT & MATCH</p>
           <h1 className="text-3xl font-semibold text-[#241820]">My Orders</h1>
         </div>
         <form className="flex flex-col gap-3 rounded-3xl border border-[#eadde6] bg-white p-4 shadow-sm sm:flex-row">

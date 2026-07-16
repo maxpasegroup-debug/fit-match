@@ -43,7 +43,7 @@ import {
 
 export const metadata: Metadata = {
   title: "My Profile",
-  description: "Manage your FIT & Match profile, addresses, and saved measurements.",
+  description: "Manage your FIT & MATCH profile, addresses, and saved measurements.",
 };
 
 export default async function ProfilePage() {
@@ -128,7 +128,7 @@ export default async function ProfilePage() {
                 } : undefined}
               />
             ) : (
-              <p className="text-sm text-[#756871]">Create a measurement profile before setting FIT & Match preferences.</p>
+              <p className="text-sm text-[#756871]">Create a measurement profile before setting FIT & MATCH preferences.</p>
             )}
           </div>
         </details>

@@ -20,7 +20,7 @@ export default function GlobalError({
       <body>
         <main className="grid min-h-screen place-items-center px-4 text-center">
           <div className="grid max-w-md gap-4">
-            <p className="text-sm font-bold tracking-[0.2em] text-[#c21874]">SIGN SILKS</p>
+            <p className="text-sm font-bold tracking-[0.2em] text-[#c21874]">FIT & MATCH</p>
             <h1 className="text-3xl font-semibold text-[#241820]">Something went wrong</h1>
             <p className="text-sm leading-6 text-[#756871]">Please try again.</p>
             <Button onClick={reset}>Retry</Button>

@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config/site";
+import { DressDesignStudio } from "./dress-design-studio";
 import { FitJourney } from "./fit-journey";
 import { StyleStudio } from "./style-studio";
 import {
@@ -55,6 +56,7 @@ export function PremiumLanding() {
       <HeroSlider />
       <FitJourney />
       <StyleStudio />
+      <DressDesignStudio />
       <FeaturedCollections />
       <ProductShowroom
         eyebrow={homepageProductRows[0]?.eyebrow ?? "Trending now"}
@@ -79,8 +81,8 @@ export function PremiumLanding() {
 
 function HeroSlider() {
   return (
-    <section className="relative min-h-[92svh] overflow-hidden bg-[#241820]">
-      <div className="flex h-[92svh] snap-x overflow-x-auto scroll-smooth">
+    <section className="relative min-h-[calc(90svh-72px)] overflow-hidden bg-[#241820]">
+      <div className="flex h-[calc(90svh-72px)] min-h-[620px] snap-x overflow-x-auto scroll-smooth max-sm:min-h-[calc(90svh-72px)]">
         {heroSlides.map((slide, index) => (
           <article id={`slide-${index + 1}`} key={slide.headline} className="relative h-full min-w-full snap-start">
             <Image
@@ -111,11 +113,11 @@ function HeroSlider() {
                     {slide.subtitle}
                   </motion.p>
                   <motion.div variants={fadeUp} className="mt-9 flex flex-col gap-3 sm:flex-row">
-                    <ButtonLink href={slide.href} size="lg" className="rounded-full bg-white px-7 text-primary hover:bg-white/90">
+                    <ButtonLink href={slide.href} size="lg" className="w-full rounded-full bg-white px-7 text-primary hover:bg-white/90 sm:w-auto">
                       {slide.cta}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </ButtonLink>
-                    <ButtonLink href="/collections" variant="secondary" size="lg" className="rounded-full border-white/25 bg-white/12 px-7 text-white hover:bg-white/20">
+                    <ButtonLink href="/collections" variant="secondary" size="lg" className="w-full rounded-full border-white/25 bg-white/12 px-7 text-white hover:bg-white/20 sm:w-auto">
                       Explore Designs
                     </ButtonLink>
                   </motion.div>
@@ -396,7 +398,7 @@ function LuxuryFooter() {
     <footer className="border-t border-primary/10 bg-[#241820] px-4 py-12 text-white sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-white/50">SIGN SILKS</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-white/50">FIT & MATCH</p>
           <h2 className="mt-4 text-3xl font-semibold">{siteConfig.productName}</h2>
           <p className="mt-4 max-w-md text-sm leading-7 text-white/66">India’s premium AI-assisted custom fashion platform for women. Measure, choose, customise, and receive a beautifully stitched outfit at home.</p>
           <div className="mt-6 flex gap-3">
@@ -423,7 +425,7 @@ function LuxuryFooter() {
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-[1280px] flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/52 sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2026 SIGN SILKS. Truly Stylish.</p>
+        <p>© 2026 FIT & MATCH. Truly Stylish.</p>
         <div className="rounded-2xl border border-white/12 bg-white/8 px-4 py-3">App download placeholder</div>
       </div>
     </footer>

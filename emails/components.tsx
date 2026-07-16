@@ -25,12 +25,12 @@ export function EmailShell({ preview, title, children }: EmailShellProps) {
       <Preview>{preview}</Preview>
       <Body style={body}>
         <Container style={container}>
-          <Text style={brand}>SIGN SILKS</Text>
+          <Text style={brand}>FIT & MATCH</Text>
           <Heading style={heading}>{title}</Heading>
           <Section>{children}</Section>
           <Hr style={hr} />
           <Text style={footer}>
-            FIT & Match keeps your account secure with time-limited links.
+            FIT & MATCH keeps your account secure with time-limited links.
           </Text>
         </Container>
       </Body>

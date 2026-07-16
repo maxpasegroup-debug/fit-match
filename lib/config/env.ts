@@ -3,7 +3,7 @@ import { z } from "zod";
 const envSchema = z.object({
   DATABASE_URL: z.string().url(),
   APP_URL: z.string().url(),
-  APP_NAME: z.string().min(1).default("FIT & Match"),
+  APP_NAME: z.string().min(1).default("FIT & MATCH"),
   AUTH_SECRET: z.string().min(32),
   RESEND_API_KEY: z.string().default(""),
   EMAIL_FROM: z.string().default(""),

@@ -18,7 +18,7 @@ export default async function CartPage() {
         <section className="grid gap-5">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-sm font-semibold text-[#c21874]">SIGN SILKS</p>
+              <p className="text-sm font-semibold text-[#c21874]">FIT & MATCH</p>
               <h1 className="text-3xl font-semibold text-[#241820]">Shopping Cart</h1>
             </div>
             {activeItems.length > 0 ? (

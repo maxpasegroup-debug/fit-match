@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "node ./node_modules/next/dist/bin/next dev",
     "build": "node ./node_modules/next/dist/bin/next build",
-    "prestart": "node ./node_modules/prisma/build/index.js db push",
-    "start": "node ./node_modules/next/dist/bin/next start",
+    "db:push": "node ./node_modules/prisma/build/index.js db push",
+    "start": "node ./node_modules/prisma/build/index.js db push && node ./node_modules/next/dist/bin/next start",
     "lint": "node ./node_modules/eslint/bin/eslint.js .",
     "typecheck": "node ./node_modules/typescript/bin/tsc --noEmit",
     "prisma:validate": "node ./node_modules/prisma/build/index.js validate",

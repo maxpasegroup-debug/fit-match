@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Create account" };
 
 export default function RegisterPage() {
   return (
-    <AuthFormShell title="Create your account" subtitle="Start your SIGN SILKS style journey with secure access.">
+    <AuthFormShell title="Create your account" subtitle="Start your FIT & MATCH style journey with secure access.">
       <RegisterForm />
     </AuthFormShell>
   );

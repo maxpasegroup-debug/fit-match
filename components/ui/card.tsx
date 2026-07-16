@@ -8,7 +8,7 @@ export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
-        "border bg-white p-5",
+        "border bg-white/92 p-6 transition-all duration-300 hover:shadow-[0_24px_70px_rgba(36,24,32,0.09)]",
         radius.card,
         colorClasses.border,
         shadows.card,

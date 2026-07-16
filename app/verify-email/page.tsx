@@ -19,7 +19,7 @@ export default async function VerifyEmailPage({
       title={verified ? "Email verified" : "Verification link expired"}
       subtitle={
         verified
-          ? "Your SIGN SILKS account is ready."
+          ? "Your FIT & MATCH account is ready."
           : "Please log in and request a fresh verification link."
       }
     >

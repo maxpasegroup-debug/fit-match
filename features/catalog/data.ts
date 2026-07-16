@@ -2,6 +2,7 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db/prisma";
 import { getCurrentUser } from "@/lib/auth/session";
 import { catalogSearchSchema } from "@/features/catalog/schemas";
+import { logError } from "@/lib/logger";
 
 export const productInclude = {
   category: true,
@@ -112,32 +113,37 @@ export async function getCatalogProducts(input: SearchParamsInput) {
 
 export async function getDiscoveryHomeData() {
   const user = await getCurrentUser();
-  const [banners, collections, trending, newArrivals, wedding, office, festival, premium] =
-    await prisma.$transaction([
-      prisma.featuredBanner.findMany({
-        where: { published: true, OR: [{ activeAt: null }, { activeAt: { lte: new Date() } }], AND: [{ OR: [{ expiresAt: null }, { expiresAt: { gte: new Date() } }] }] },
-        include: { desktopMediaAsset: true, tabletMediaAsset: true, mobileMediaAsset: true },
-        orderBy: { sortOrder: "asc" },
-        take: 5,
-      }),
-      prisma.collection.findMany({ where: { published: true, featured: true }, orderBy: { sortOrder: "asc" }, take: 6 }),
-      prisma.product.findMany({ where: { published: true, trending: true }, include: productInclude, take: 8 }),
-      prisma.product.findMany({ where: { published: true, newArrival: true }, include: productInclude, take: 8 }),
-      prisma.product.findMany({ where: { published: true, collection: { slug: "wedding" } }, include: productInclude, take: 8 }),
-      prisma.product.findMany({ where: { published: true, collection: { slug: "office" } }, include: productInclude, take: 8 }),
-      prisma.product.findMany({ where: { published: true, collection: { slug: "festival" } }, include: productInclude, take: 8 }),
-      prisma.product.findMany({ where: { published: true, tags: { some: { slug: "premium" } } }, include: productInclude, take: 8 }),
-    ]);
-  const recently = user
-    ? await prisma.recentlyViewed.findMany({
-        where: { userId: user.id },
-        include: { product: { include: productInclude } },
-        orderBy: { viewedAt: "desc" },
-        take: 8,
-      })
-    : [];
+  try {
+    const [banners, collections, trending, newArrivals, wedding, office, festival, premium] =
+      await prisma.$transaction([
+        prisma.featuredBanner.findMany({
+          where: { published: true, OR: [{ activeAt: null }, { activeAt: { lte: new Date() } }], AND: [{ OR: [{ expiresAt: null }, { expiresAt: { gte: new Date() } }] }] },
+          include: { desktopMediaAsset: true, tabletMediaAsset: true, mobileMediaAsset: true },
+          orderBy: { sortOrder: "asc" },
+          take: 5,
+        }),
+        prisma.collection.findMany({ where: { published: true, featured: true }, orderBy: { sortOrder: "asc" }, take: 6 }),
+        prisma.product.findMany({ where: { published: true, trending: true }, include: productInclude, take: 8 }),
+        prisma.product.findMany({ where: { published: true, newArrival: true }, include: productInclude, take: 8 }),
+        prisma.product.findMany({ where: { published: true, collection: { slug: "wedding" } }, include: productInclude, take: 8 }),
+        prisma.product.findMany({ where: { published: true, collection: { slug: "office" } }, include: productInclude, take: 8 }),
+        prisma.product.findMany({ where: { published: true, collection: { slug: "festival" } }, include: productInclude, take: 8 }),
+        prisma.product.findMany({ where: { published: true, tags: { some: { slug: "premium" } } }, include: productInclude, take: 8 }),
+      ]);
+    const recently = user
+      ? await prisma.recentlyViewed.findMany({
+          where: { userId: user.id },
+          include: { product: { include: productInclude } },
+          orderBy: { viewedAt: "desc" },
+          take: 8,
+        })
+      : [];
 
-  return { banners, collections, trending, newArrivals, wedding, office, festival, premium, recently };
+    return { banners, collections, trending, newArrivals, wedding, office, festival, premium, recently };
+  } catch (error) {
+    logError(error, "discovery home data unavailable");
+    return { banners: [], collections: [], trending: [], newArrivals: [], wedding: [], office: [], festival: [], premium: [], recently: [] };
+  }
 }
 
 export async function getCategories() {

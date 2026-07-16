@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Log in" };
 
 export default function LoginPage() {
   return (
-    <AuthFormShell title="Welcome back" subtitle="Log in securely to continue with FIT & Match.">
+    <AuthFormShell title="Welcome back" subtitle="Log in securely to continue with FIT & MATCH.">
       <LoginForm />
     </AuthFormShell>
   );

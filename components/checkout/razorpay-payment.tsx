@@ -93,8 +93,8 @@ export function RazorpayPayment({ checkoutSessionId, disabled }: { checkoutSessi
       key: clientEnv.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       amount: order.amount,
       currency: order.currency,
-      name: "SIGN SILKS",
-      description: "FIT & Match checkout",
+      name: "FIT & MATCH",
+      description: "FIT & MATCH checkout",
       order_id: order.orderId,
       handler: async (response) => {
         const verify = await fetch("/api/checkout/razorpay/verify", {

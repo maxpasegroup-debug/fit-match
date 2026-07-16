@@ -18,7 +18,7 @@ export function Footer() {
       <div className={`${siteConfig.maxWidthClass} grid gap-6 md:grid-cols-[1fr_auto]`}>
         <Logo />
         <p className="max-w-xl text-sm leading-6 text-[#756871]">
-          Premium style infrastructure for SIGN SILKS. Clean, secure, and ready
+          Premium style infrastructure for FIT & MATCH. Clean, secure, and ready
           for the next phase of commerce features.
         </p>
         <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold text-[#756871] md:col-span-2" aria-label="Legal">

@@ -4,7 +4,7 @@ import Link from "next/link";
 const items = [
   { href: "/", label: "Home", icon: Home },
   { href: "/categories", label: "Categories", icon: Grid2X2 },
-  { href: "/fit-match", label: "FIT & Match", icon: Shirt },
+  { href: "/fit-match", label: "FIT & MATCH", icon: Shirt },
   { href: "/orders", label: "Orders", icon: PackageCheck },
   { href: "/profile", label: "Profile", icon: UserRound },
 ] as const;

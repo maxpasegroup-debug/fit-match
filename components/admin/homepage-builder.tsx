@@ -23,6 +23,7 @@ import {
   customerStories,
   fitJourneyIntro,
   fitJourneySteps,
+  designStudio,
   heroSlides,
   homepageProductRows,
   occasions,
@@ -46,6 +47,7 @@ const defaultSections: BuilderSection[] = [
   { id: "hero", title: "Hero Slider", description: "Cinematic homepage slides with CTA buttons and overlays.", enabled: true, status: "Live", items: heroSlides.length },
   { id: "fit-journey", title: "Signature FIT Journey", description: "Personalised onboarding cards, guided choices, and recommended designs.", enabled: true, status: "Live", items: fitJourneySteps.length },
   { id: "style-studio", title: "Style Studio", description: "Editorial style cards, mood filters, fabric studio, and colour studio.", enabled: true, status: "Live", items: styleStudioCards.length + moodCards.length + fabricStudioCards.length + colourStudioCards.length },
+  { id: "design-studio", title: "Dress Design Studio", description: "Luxury configurator for styles, fabrics, colours, sleeves, necklines, lengths, and details.", enabled: true, status: "Live", items: designStudio.baseStyles.length + designStudio.fabrics.length + designStudio.colours.length },
   { id: "journey", title: "AI Measurement Journey", description: "Four-step explanation for measurement to delivery.", enabled: true, status: "Live", items: 4 },
   { id: "occasion", title: "Occasion Cards", description: "Wedding, office, college, daily wear, and seasonal cards.", enabled: true, status: "Live", items: occasions.length },
   { id: "category", title: "Category Thumbnails", description: "Circular premium category shortcuts for mobile shopping.", enabled: true, status: "Live", items: categories.length },
@@ -75,6 +77,8 @@ export function HomepageBuilder() {
   const [journeyCtas, setJourneyCtas] = useState(fitJourneyIntro.cards.map((card) => card.cta));
   const [styleTitle, setStyleTitle] = useState("Discover Your Style");
   const [styleSubtitle, setStyleSubtitle] = useState("Find collections that match your personality and lifestyle.");
+  const [designTitle, setDesignTitle] = useState(designStudio.title);
+  const [designSubtitle, setDesignSubtitle] = useState(designStudio.subtitle);
 
   const enabledCount = useMemo(() => sections.filter((section) => section.enabled).length, [sections]);
   const assetCount =
@@ -85,7 +89,8 @@ export function HomepageBuilder() {
     styleJournal.length +
     fitJourneyIntro.cards.length +
     styleStudioCards.length +
-    fabricStudioCards.length;
+    fabricStudioCards.length +
+    designStudio.baseStyles.length;
 
   function toggleSection(id: string) {
     setSections((current) =>
@@ -251,6 +256,53 @@ export function HomepageBuilder() {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-5">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h2 className="text-xl font-semibold text-[#241820]">Design Studio Controls</h2>
+                <p className="mt-2 text-sm leading-6 text-[#756871]">
+                  Mock configuration for the flagship dress configurator, ready for future CMS persistence.
+                </p>
+              </div>
+              <span className="rounded-full bg-[#fff5fa] px-3 py-1 text-xs font-semibold text-[#c21874]">Configurator</span>
+            </div>
+            <div className="mt-5 grid gap-4">
+              <label className="grid gap-2 text-sm font-semibold text-[#3a2c34]">
+                Section title
+                <input
+                  value={designTitle}
+                  onChange={(event) => setDesignTitle(event.target.value)}
+                  className="rounded-2xl border border-[#f2d7e6] bg-white px-4 py-3 text-sm font-medium outline-none focus:border-[#c21874]"
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-semibold text-[#3a2c34]">
+                Subtitle
+                <textarea
+                  value={designSubtitle}
+                  onChange={(event) => setDesignSubtitle(event.target.value)}
+                  rows={3}
+                  className="rounded-2xl border border-[#f2d7e6] bg-white px-4 py-3 text-sm font-medium outline-none focus:border-[#c21874]"
+                />
+              </label>
+              <div className="grid gap-3">
+                {[
+                  ["Base styles", designStudio.baseStyles.length],
+                  ["Fabric list", designStudio.fabrics.length],
+                  ["Colour palettes", designStudio.colours.length],
+                  ["Neck styles", designStudio.neckStyles.length],
+                  ["Sleeve styles", designStudio.sleeves.length],
+                  ["Length options", designStudio.lengths.length],
+                  ["Optional details", designStudio.details.length],
+                ].map(([label, count]) => (
+                  <div key={label} className="flex items-center justify-between rounded-2xl bg-[#fff8fb] px-4 py-3 text-sm">
+                    <span className="font-semibold text-[#3a2c34]">{label}</span>
+                    <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-[#c21874]">{count} items</span>
+                  </div>
+                ))}
               </div>
             </div>
           </Card>

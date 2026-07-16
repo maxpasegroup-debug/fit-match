@@ -17,7 +17,7 @@ export default async function CategoriesPage() {
         <div>
           <Grid2X2 className="mb-4 h-7 w-7 text-[#c21874]" />
           <h1 className="text-3xl font-semibold text-[#241820]">Categories</h1>
-          <p className="mt-2 text-sm text-[#756871]">Browse SIGN SILKS by style family.</p>
+          <p className="mt-2 text-sm text-[#756871]">Browse FIT & MATCH by style family.</p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {categories.map((category) => (

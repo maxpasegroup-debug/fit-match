@@ -12,7 +12,7 @@ export function PaymentSuccessEmail({
   transactionId: string;
 }) {
   return (
-    <EmailShell preview="Your SIGN SILKS payment was successful." title="Payment Successful">
+    <EmailShell preview="Your FIT & MATCH payment was successful." title="Payment Successful">
       <Text style={paragraph}>Hi {name},</Text>
       <Text style={paragraph}>
         We received your payment of {formatMoney(total)}. Transaction ID: {transactionId}.

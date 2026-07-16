@@ -1,8 +1,8 @@
 export const siteConfig = {
-  brandName: "SIGN SILKS",
-  productName: "FIT & Match",
+  brandName: "FIT & MATCH",
+  productName: "FIT & MATCH",
   tagline: "Truly Stylish.",
   description:
-    "A premium personal fashion foundation from SIGN SILKS for elegant shopping experiences.",
-  maxWidthClass: "mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8",
+    "A premium AI-assisted custom fashion platform for elegant personal style experiences.",
+  maxWidthClass: "mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8 xl:px-10",
 } as const;

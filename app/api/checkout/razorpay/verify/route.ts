@@ -54,7 +54,7 @@ export async function POST(request: Request) {
     });
     await prisma.checkoutSession.update({ where: { id: input.checkoutSessionId }, data: { status: "FAILED" } });
     await logCustomerAudit({ action: "PAYMENT_FAILED", entityType: "Payment", entityId: payment.id, message: "Payment signature verification failed." });
-    await sendEmail({ to: user.email, subject: "SIGN SILKS payment failed", react: PaymentFailedEmail({ name: user.name, reason: "signature verification failed" }) });
+    await sendEmail({ to: user.email, subject: "FIT & MATCH payment failed", react: PaymentFailedEmail({ name: user.name, reason: "signature verification failed" }) });
     return NextResponse.json({ error: "Payment verification failed" }, { status: 400 });
   }
 
@@ -89,12 +89,12 @@ export async function POST(request: Request) {
   await logCustomerAudit({ action: "PAYMENT_SUCCESS", entityType: "Payment", entityId: payment.id, message: "Razorpay payment verified." });
   await sendEmail({
     to: user.email,
-    subject: "SIGN SILKS payment successful",
+    subject: "FIT & MATCH payment successful",
     react: PaymentSuccessEmail({ name: user.name, total: Number(payment.amount), transactionId: input.razorpay_payment_id }),
   });
   await sendEmail({
     to: user.email,
-    subject: "SIGN SILKS order confirmed",
+    subject: "FIT & MATCH order confirmed",
     react: OrderConfirmedEmail({ name: user.name, orderNumber: order.orderNumber }),
   });
 

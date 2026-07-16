@@ -6,6 +6,10 @@ export const colors = {
   primary: "#c21874",
   primaryStrong: "#9f125d",
   primarySoft: "#fde8f3",
+  champagne: "#f4eadf",
+  ivory: "#fffaf4",
+  gold: "#d4a73c",
+  graphite: "#2b2530",
   white: "#ffffff",
   success: "#047857",
   successSoft: "#ecfdf5",
@@ -15,10 +19,10 @@ export const colors = {
 
 export const colorClasses = {
   focusRing:
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c21874] focus-visible:ring-offset-2 focus-visible:ring-offset-white",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c21874] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffafd]",
   primaryText: "text-[#c21874]",
-  primaryBg: "bg-[#c21874]",
-  primaryHoverBg: "hover:bg-[#9f125d]",
+  primaryBg: "bg-gradient-to-r from-[#c21874] via-[#d43d8c] to-[#9f125d]",
+  primaryHoverBg: "hover:shadow-[0_18px_42px_rgba(194,24,116,0.24)]",
   primarySoftBg: "bg-[#fde8f3]",
   primarySoftHoverBg: "hover:bg-[#fff5fa]",
   bodyText: "text-[#241820]",

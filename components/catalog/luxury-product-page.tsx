@@ -263,7 +263,7 @@ function ProductDetails({ product }: { product: ProductDetailData }) {
       <div className="grid gap-4 md:grid-cols-4">
         <Metric title="Brand" value={product.brand} />
         <Metric title="Category" value={product.category.name} />
-        <Metric title="Collection" value={product.collection?.name ?? "SIGN SILKS edit"} />
+        <Metric title="Collection" value={product.collection?.name ?? "FIT & MATCH edit"} />
         <Metric title="SKU" value={product.sku} />
       </div>
     </EditorialSection>
@@ -274,7 +274,7 @@ function FabricStory({ product, selectedFabric }: { product: ProductDetailData; 
   const fabric = product.fabrics[0];
   const story = [
     ["Feel", "Soft touch with an elegant fall"],
-    ["Texture", fabric?.description ?? "Premium texture selected by SIGN SILKS"],
+    ["Texture", fabric?.description ?? "Premium texture selected by FIT & MATCH"],
     ["Weight", "Light to medium"],
     ["Breathability", "Comfortable for long wear"],
     ["Maintenance", fabric?.careInstructions ?? "Gentle care recommended"],

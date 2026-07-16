@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "FIT & Match",
-    short_name: "FIT & Match",
-    description: "SIGN SILKS FIT & Match. Truly Stylish.",
+    name: "FIT & MATCH",
+    short_name: "FIT & MATCH",
+    description: "FIT & MATCH. Truly Stylish.",
     start_url: "/",
     scope: "/",
     display: "standalone",
@@ -33,7 +33,7 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       { name: "Search styles", short_name: "Search", url: "/search", icons: [{ src: "/icon.svg", sizes: "512x512" }] },
-      { name: "FIT & Match", short_name: "FIT", url: "/fit-match", icons: [{ src: "/icon.svg", sizes: "512x512" }] },
+      { name: "FIT & MATCH", short_name: "FIT", url: "/fit-match", icons: [{ src: "/icon.svg", sizes: "512x512" }] },
       { name: "My Orders", short_name: "Orders", url: "/orders", icons: [{ src: "/icon.svg", sizes: "512x512" }] },
     ],
     screenshots: [

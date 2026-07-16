@@ -5,7 +5,7 @@ export function FitRecommendationPanel({ data }: { data: AwaitedProductFitRecomm
   if (!data) {
     return (
       <div className="rounded-3xl border border-[#eadde6] bg-[#fffafd] p-5">
-        <p className="font-semibold text-[#241820]">FIT & Match</p>
+        <p className="font-semibold text-[#241820]">FIT & MATCH</p>
         <p className="mt-2 text-sm text-[#756871]">Create a FIT profile in My Profile to unlock personal size, color, and fabric recommendations.</p>
       </div>
     );
@@ -15,7 +15,7 @@ export function FitRecommendationPanel({ data }: { data: AwaitedProductFitRecomm
     <section className="grid gap-4 rounded-3xl border border-[#eadde6] bg-[#fffafd] p-5" aria-label="FIT and Match recommendation">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="text-sm font-semibold text-[#c21874]">FIT & Match Recommendation</p>
+          <p className="text-sm font-semibold text-[#c21874]">FIT & MATCH Recommendation</p>
           <h2 className="text-xl font-semibold text-[#241820]">Recommended: {result.recommendedSize}</h2>
           <p className="text-sm text-[#756871]">Using {fitProfile.name} · {fitProfile.measurementProfile.profileName}</p>
         </div>

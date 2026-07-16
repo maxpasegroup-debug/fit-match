@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export default async function AdminFitPage() {
   const { rules, charts, categories } = await getAdminFitData();
   return (
-    <AdminShell title="FIT & Match Engine">
+    <AdminShell title="FIT & MATCH Engine">
       <div className="grid gap-5 lg:grid-cols-2">
         <FitRuleForm />
         <SizeChartForm categories={categories} />

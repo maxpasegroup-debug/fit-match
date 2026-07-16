@@ -14,14 +14,14 @@ export default async function CollectionsPage() {
     <main className="py-10 md:py-14">
       <div className={`${siteConfig.maxWidthClass} grid gap-6`}>
         <div>
-          <p className="text-sm font-semibold text-[#c21874]">SIGN SILKS</p>
+          <p className="text-sm font-semibold text-[#c21874]">FIT & MATCH</p>
           <h1 className="mt-2 text-3xl font-semibold text-[#241820]">Collections</h1>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {collections.map((collection) => (
             <Card key={collection.id}>
               <Link className="text-xl font-semibold text-[#241820]" href={`/collections/${collection.slug}`}>{collection.name}</Link>
-              <p className="mt-2 text-sm leading-6 text-[#756871]">{collection.description ?? "Curated SIGN SILKS edit."}</p>
+              <p className="mt-2 text-sm leading-6 text-[#756871]">{collection.description ?? "Curated FIT & MATCH edit."}</p>
               <p className="mt-3 text-sm font-semibold text-[#c21874]">{collection._count.products} products</p>
             </Card>
           ))}

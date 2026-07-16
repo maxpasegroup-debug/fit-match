@@ -29,7 +29,7 @@ export default async function SearchPage({
     <main className="py-10 md:py-14">
       <div className={`${siteConfig.maxWidthClass} grid gap-6`}>
         <div>
-          <p className="text-sm font-semibold text-[#c21874]">SIGN SILKS</p>
+          <p className="text-sm font-semibold text-[#c21874]">FIT & MATCH</p>
           <h1 className="mt-2 text-3xl font-semibold text-[#241820]">Search collections</h1>
           <p className="mt-2 text-sm text-[#756871]">{total} styles found</p>
         </div>

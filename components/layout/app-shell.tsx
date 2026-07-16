@@ -20,7 +20,9 @@ export function AppShell({
   return (
     <>
       <Header user={user} wishlistCount={wishlistCount} cartCount={cartCount} notificationCount={notificationCount} />
-      {children}
+      <div className="pt-[72px]">
+        {children}
+      </div>
       <Footer />
       <BottomNav />
     </>

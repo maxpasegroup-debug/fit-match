@@ -25,7 +25,7 @@ export default async function CheckoutPage() {
         <section className="grid gap-5">
           <div>
             <p className="text-sm font-semibold text-[#c21874]">Secure Checkout</p>
-            <h1 className="text-3xl font-semibold text-[#241820]">Complete your FIT & Match checkout</h1>
+            <h1 className="text-3xl font-semibold text-[#241820]">Complete your FIT & MATCH checkout</h1>
           </div>
           <ol className="grid grid-cols-2 gap-2 sm:grid-cols-3">
             {steps.map((step, index) => (
