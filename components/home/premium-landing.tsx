@@ -82,46 +82,61 @@ export function PremiumLanding() {
 function HeroSlider() {
   return (
     <section className="relative min-h-[calc(90svh-72px)] overflow-hidden bg-[#241820]">
-      <div className="flex h-[calc(90svh-72px)] min-h-[620px] snap-x overflow-x-auto scroll-smooth max-sm:min-h-[calc(90svh-72px)]">
+      <div className="flex h-[calc(90svh-72px)] min-h-[620px] snap-x overflow-x-auto scroll-smooth [scrollbar-width:none] max-sm:min-h-[calc(90svh-72px)] [&::-webkit-scrollbar]:hidden">
         {heroSlides.map((slide, index) => (
-          <article id={`slide-${index + 1}`} key={slide.headline} className="relative h-full min-w-full snap-start">
+          <article id={`slide-${index + 1}`} key={slide.headline} className="relative grid h-full min-w-full snap-start overflow-hidden lg:grid-cols-[1.03fr_0.97fr]">
             <Image
               src={slide.image.src}
               alt={slide.image.alt}
               fill
               priority={index === 0}
               sizes="100vw"
-              className="object-cover"
+              className="object-cover object-[58%_center] opacity-95 sm:object-[62%_center] lg:object-[68%_center]"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#241820]/88 via-[#241820]/42 to-[#241820]/12" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#241820]/74 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#241820]/94 via-[#241820]/58 to-[#241820]/14" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#241820]/82 via-transparent to-[#241820]/12" />
             <motion.div
               initial="hidden"
               animate="visible"
               variants={stagger}
-              className="relative z-10 flex h-full items-center px-4 sm:px-6 lg:px-8"
+              className="relative z-10 col-span-full flex h-full items-center px-4 py-10 sm:px-6 lg:px-8"
             >
-              <div className="mx-auto w-full max-w-[1280px]">
-                <div className="max-w-3xl pt-16 text-white">
+              <div className="mx-auto grid w-full max-w-[1440px] items-center gap-8 lg:grid-cols-[0.9fr_0.72fr]">
+                <div className="max-w-3xl pt-10 text-white sm:pt-16 lg:pt-0">
                   <motion.p variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.32em] text-white/68">
                     {slide.eyebrow}
                   </motion.p>
-                  <motion.h1 variants={fadeUp} className="mt-5 text-5xl font-semibold leading-[0.95] sm:text-7xl lg:text-8xl">
+                  <motion.h1 variants={fadeUp} className="mt-5 text-[42px] font-semibold leading-[0.96] sm:text-[64px] lg:text-[88px] xl:text-[104px]">
                     {slide.headline}
                   </motion.h1>
-                  <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
+                  <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-base leading-8 text-white/82 sm:text-lg">
                     {slide.subtitle}
                   </motion.p>
                   <motion.div variants={fadeUp} className="mt-9 flex flex-col gap-3 sm:flex-row">
-                    <ButtonLink href={slide.href} size="lg" className="w-full rounded-full bg-white px-7 text-primary hover:bg-white/90 sm:w-auto">
+                    <ButtonLink href={slide.href} size="lg" className="w-full rounded-full px-7 shadow-[0_18px_46px_rgba(194,24,116,0.34)] sm:w-auto">
                       {slide.cta}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </ButtonLink>
-                    <ButtonLink href="/collections" variant="secondary" size="lg" className="w-full rounded-full border-white/25 bg-white/12 px-7 text-white hover:bg-white/20 sm:w-auto">
+                    <ButtonLink href="/collections" variant="outline" size="lg" className="w-full rounded-full border-white/45 bg-white/10 px-7 text-white shadow-[0_18px_46px_rgba(0,0,0,0.14)] backdrop-blur-xl hover:bg-white hover:text-[#241820] sm:w-auto">
                       Explore Designs
                     </ButtonLink>
                   </motion.div>
                 </div>
+                <motion.div variants={fadeScale} className="hidden justify-self-end lg:block">
+                  <div className="w-[390px] rounded-[2rem] border border-white/22 bg-white/12 p-4 text-white shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-2xl xl:w-[430px]">
+                    <p className="px-2 pt-2 text-xs font-semibold uppercase tracking-[0.28em] text-white/66">Made for you</p>
+                    <div className="mt-4 grid gap-3">
+                      {["AI Measurement", "Choose Design", "Select Fabric", "Custom Stitching", "Home Delivery"].map((item, itemIndex) => (
+                        <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/16 bg-white/14 p-3">
+                          <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-sm font-bold text-[#c21874]">
+                            {itemIndex + 1}
+                          </span>
+                          <span className="text-sm font-semibold">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </article>

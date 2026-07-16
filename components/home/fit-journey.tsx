@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Check, Heart, Star } from "lucide-react";
+import { ArrowRight, Camera, Check, Heart, Ruler, Sparkles, Star, Upload } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { demoProducts, fitJourneyIntro, fitJourneySteps } from "./landing-content";
 
@@ -160,6 +160,63 @@ export function FitJourney() {
                         </div>
                       </article>
                     ))}
+                  </div>
+                ) : stepIndex === 0 ? (
+                  <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_0.85fr]">
+                    <button
+                      type="button"
+                      onClick={() => choose(activeStep.options[0]?.label ?? "Use AI photos")}
+                      className={`group min-h-[220px] rounded-3xl border p-5 text-left transition ${
+                        selected[stepIndex] === activeStep.options[0]?.label
+                          ? "border-primary bg-primary text-white shadow-[0_18px_45px_rgba(194,24,116,0.18)]"
+                          : "border-primary/10 bg-[#fff8fb] hover:border-primary/30 hover:bg-white"
+                      }`}
+                    >
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-primary shadow-[0_14px_30px_rgba(112,36,73,0.12)]">
+                        <Upload className="h-5 w-5" />
+                      </span>
+                      <span className="mt-8 block text-lg font-semibold">Upload photos</span>
+                      <span className={`mt-2 block text-sm leading-6 ${selected[stepIndex] === activeStep.options[0]?.label ? "text-white/78" : "text-[#725f69]"}`}>
+                        Add front and side photos for a guided measurement preview.
+                      </span>
+                      <span className="mt-6 grid grid-cols-2 gap-3">
+                        {["Front photo", "Side photo"].map((label) => (
+                          <span key={label} className="rounded-2xl border border-current/15 bg-white/14 p-3">
+                            <Camera className="h-4 w-4" />
+                            <span className="mt-2 block text-xs font-semibold">{label}</span>
+                          </span>
+                        ))}
+                      </span>
+                    </button>
+                    <div className="grid gap-3">
+                      {activeStep.options.slice(1).map((option) => {
+                        const isSelected = selected[stepIndex] === option.label;
+                        return (
+                          <button
+                            key={option.label}
+                            type="button"
+                            onClick={() => choose(option.label)}
+                            className={`group rounded-3xl border p-4 text-left transition ${
+                              isSelected
+                                ? "border-primary bg-primary text-white shadow-[0_18px_45px_rgba(194,24,116,0.18)]"
+                                : "border-primary/10 bg-[#fffafd] hover:border-primary/30 hover:bg-white"
+                            }`}
+                          >
+                            <span className="flex items-start gap-3">
+                              <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-2xl ${isSelected ? "bg-white/16" : "bg-primary/8 text-primary"}`}>
+                                {option.label.includes("saved") ? <Ruler className="h-5 w-5" /> : <Sparkles className="h-5 w-5" />}
+                              </span>
+                              <span>
+                                <span className="block font-semibold">{option.label}</span>
+                                <span className={`mt-1 block text-sm leading-6 ${isSelected ? "text-white/76" : "text-[#725f69]"}`}>
+                                  {option.detail}
+                                </span>
+                              </span>
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 ) : (
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
