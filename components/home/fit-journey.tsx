@@ -40,19 +40,19 @@ export function FitJourney() {
   }
 
   return (
-    <section className="relative bg-[#fffafd] px-4 py-14 sm:px-6 lg:px-8" id="fit-journey">
-      <div className="mx-auto max-w-[1280px]">
+    <section className="relative bg-[#fffafd] px-4 py-10 sm:px-6 lg:px-8" id="fit-journey">
+      <div className="mx-auto max-w-[1180px]">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={stagger}
-          className="rounded-[2rem] border border-primary/10 bg-white p-5 shadow-[0_26px_80px_rgba(112,36,73,0.12)] sm:p-8 lg:p-10"
+          className="rounded-[2rem] border border-[#eadde6] bg-white p-5 shadow-[0_20px_58px_rgba(112,36,73,0.10)] sm:p-7 lg:p-8"
         >
-          <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr]">
+          <div className="grid gap-7 lg:grid-cols-[0.88fr_1.12fr]">
             <motion.div variants={fadeUp}>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Signature FIT Journey</p>
-              <h2 className="mt-4 text-4xl font-semibold leading-tight text-[#241820] sm:text-6xl">
+              <h2 className="mt-4 text-4xl font-semibold leading-tight text-[#241820] sm:text-5xl">
                 {fitJourneyIntro.title}
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-7 text-[#725f69] sm:text-base">
@@ -66,16 +66,16 @@ export function FitJourney() {
                       key={card.title}
                       type="button"
                       onClick={() => setStepIndex(index === 0 ? 0 : index === 1 ? 1 : 2)}
-                      className="group flex items-center gap-4 rounded-3xl border border-primary/10 bg-[#fff8fb] p-4 text-left transition hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_18px_45px_rgba(112,36,73,0.1)]"
+                    className="group flex items-center gap-4 rounded-[1.5rem] border border-[#eadde6] bg-[#fff8fb] p-4 text-left transition hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_16px_36px_rgba(112,36,73,0.09)]"
                     >
-                      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-white shadow-lg">
+                      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#c21874] text-white shadow-lg">
                         <Icon className="h-6 w-6" />
                       </span>
                       <span className="min-w-0 flex-1">
                         <span className="block text-base font-semibold text-[#241820]">{card.title}</span>
                         <span className="mt-1 block text-sm leading-6 text-[#725f69]">{card.subtitle}</span>
                       </span>
-                      <span className="hidden rounded-full bg-white px-4 py-2 text-xs font-semibold text-primary shadow-sm sm:block">
+                      <span className="hidden rounded-full border border-[#eadde6] bg-white px-4 py-2 text-xs font-semibold text-[#c21874] shadow-sm sm:block">
                         {card.cta}
                       </span>
                     </button>
@@ -93,7 +93,7 @@ export function FitJourney() {
                     </p>
                     <h3 className="mt-2 text-2xl font-semibold">{activeStep.title}</h3>
                   </div>
-                  <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-primary">{Math.round(progress)}%</span>
+                  <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-[#c21874]">{Math.round(progress)}%</span>
                 </div>
                 <div className="mt-5 h-2 overflow-hidden rounded-full bg-white/12">
                   <motion.div
@@ -137,13 +137,13 @@ export function FitJourney() {
                             sizes="(min-width: 1024px) 220px, 46vw"
                             className="object-cover"
                           />
-                          <span className="absolute left-3 top-3 rounded-full bg-white/92 px-3 py-1 text-xs font-semibold text-primary">
+                          <span className="absolute left-3 top-3 rounded-full bg-white/92 px-3 py-1 text-xs font-semibold text-[#c21874]">
                             {product.fit}
                           </span>
                           <button
                             type="button"
                             aria-label={`Save ${product.name}`}
-                            className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/92 text-primary"
+                            className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/92 text-[#c21874]"
                           >
                             <Heart className="h-4 w-4" />
                           </button>
@@ -166,22 +166,22 @@ export function FitJourney() {
                     <button
                       type="button"
                       onClick={() => choose(activeStep.options[0]?.label ?? "Use AI photos")}
-                      className={`group min-h-[220px] rounded-3xl border p-5 text-left transition ${
+                      className={`group rounded-3xl border p-5 text-left transition ${
                         selected[stepIndex] === activeStep.options[0]?.label
-                          ? "border-primary bg-primary text-white shadow-[0_18px_45px_rgba(194,24,116,0.18)]"
-                          : "border-primary/10 bg-[#fff8fb] hover:border-primary/30 hover:bg-white"
+                          ? "border-[#c21874] bg-gradient-to-br from-[#c21874] via-[#a91562] to-[#5c173f] text-white shadow-[0_18px_45px_rgba(194,24,116,0.22)]"
+                          : "border-[#eadde6] bg-[#fff8fb] text-[#241820] hover:border-[#c21874]/30 hover:bg-white"
                       }`}
                     >
-                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-primary shadow-[0_14px_30px_rgba(112,36,73,0.12)]">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[#c21874] shadow-[0_14px_30px_rgba(112,36,73,0.12)]">
                         <Upload className="h-5 w-5" />
                       </span>
-                      <span className="mt-8 block text-lg font-semibold">Upload photos</span>
+                      <span className="mt-5 block text-lg font-semibold">Upload photos</span>
                       <span className={`mt-2 block text-sm leading-6 ${selected[stepIndex] === activeStep.options[0]?.label ? "text-white/78" : "text-[#725f69]"}`}>
                         Add front and side photos for a guided measurement preview.
                       </span>
-                      <span className="mt-6 grid grid-cols-2 gap-3">
+                      <span className="mt-5 grid grid-cols-2 gap-3">
                         {["Front photo", "Side photo"].map((label) => (
-                          <span key={label} className="rounded-2xl border border-current/15 bg-white/14 p-3">
+                          <span key={label} className="rounded-2xl border border-current/20 bg-white/16 p-3">
                             <Camera className="h-4 w-4" />
                             <span className="mt-2 block text-xs font-semibold">{label}</span>
                           </span>
@@ -198,12 +198,12 @@ export function FitJourney() {
                             onClick={() => choose(option.label)}
                             className={`group rounded-3xl border p-4 text-left transition ${
                               isSelected
-                                ? "border-primary bg-primary text-white shadow-[0_18px_45px_rgba(194,24,116,0.18)]"
-                                : "border-primary/10 bg-[#fffafd] hover:border-primary/30 hover:bg-white"
+                                ? "border-[#c21874] bg-gradient-to-br from-[#c21874] to-[#7b174c] text-white shadow-[0_18px_45px_rgba(194,24,116,0.18)]"
+                                : "border-[#eadde6] bg-[#fffafd] text-[#241820] hover:border-[#c21874]/30 hover:bg-white"
                             }`}
                           >
                             <span className="flex items-start gap-3">
-                              <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-2xl ${isSelected ? "bg-white/16" : "bg-primary/8 text-primary"}`}>
+                              <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-2xl ${isSelected ? "bg-white/16" : "bg-[#fde8f3] text-[#c21874]"}`}>
                                 {option.label.includes("saved") ? <Ruler className="h-5 w-5" /> : <Sparkles className="h-5 w-5" />}
                               </span>
                               <span>

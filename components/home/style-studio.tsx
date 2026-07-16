@@ -38,7 +38,7 @@ export function StyleStudio() {
   );
 
   return (
-    <section className="bg-[#fffafd] px-4 py-14 sm:px-6 lg:px-8" id="style-studio">
+    <section className="scroll-mt-24 bg-[#fffafd] px-4 py-12 sm:px-6 lg:px-8" id="style-studio">
       <div className="mx-auto max-w-[1280px]">
         <SectionHeading
           eyebrow="Style Studio"
@@ -83,7 +83,7 @@ function EditorialStudio() {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/62">Style edit</p>
             <h3 className="mt-3 text-3xl font-semibold">{card.title}</h3>
             <p className="mt-2 max-w-md text-sm leading-6 text-white/76">{card.subtitle}</p>
-            <Link href="/collections" className="mt-5 inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-primary">
+            <Link href="/collections" className="mt-5 inline-flex min-h-11 items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#c21874] shadow-[0_14px_34px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:bg-[#fde8f3] hover:text-[#9f125d]">
               {card.cta}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
@@ -230,7 +230,7 @@ function ProductRail({ products, label }: { products: ProductCard[]; label: stri
               <button
                 type="button"
                 aria-label={`Save ${product.name}`}
-                className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/92 text-primary"
+                className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/92 text-[#c21874]"
               >
                 <Heart className="h-4 w-4" />
               </button>

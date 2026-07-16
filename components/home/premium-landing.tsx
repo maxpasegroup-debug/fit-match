@@ -268,11 +268,11 @@ function ProductCardView({ product }: { product: ProductCard }) {
     <motion.article variants={fadeUp} className="group min-w-[72%] overflow-hidden rounded-[1.75rem] border border-primary/10 bg-white shadow-[0_18px_45px_rgba(112,36,73,0.08)] sm:min-w-[38%] lg:min-w-[23%]">
       <div className="relative aspect-[4/5] overflow-hidden bg-[#f8eef3]">
         <Image src={product.image.src} alt={product.image.alt} fill sizes="(min-width: 1024px) 23vw, 72vw" className="object-cover transition duration-500 group-hover:scale-105" />
-        <button type="button" aria-label={`Add ${product.name} to wishlist`} className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-primary shadow-lg backdrop-blur transition hover:scale-105">
+        <button type="button" aria-label={`Add ${product.name} to wishlist`} className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-[#c21874] shadow-lg backdrop-blur transition hover:scale-105">
           <Heart className="h-5 w-5" />
         </button>
         <div className="absolute left-3 top-3 flex flex-col gap-2">
-          <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-primary shadow-sm">{product.fit}</span>
+          <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#c21874] shadow-sm">{product.fit}</span>
           {product.aiRecommended ? <span className="rounded-full bg-[#241820]/88 px-3 py-1 text-xs font-semibold text-white shadow-sm">AI Recommended</span> : null}
         </div>
       </div>
